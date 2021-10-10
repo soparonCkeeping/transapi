@@ -18,9 +18,8 @@ app.get('/api/auto', (req, res, next) => {
     translate(req.query.text, { to: req.query.to }).then(data => {
         res.json({
             text: data.text,
-            autoCorrected: data.from.autoCorrected,
-            value: data.from.text.value,
-            didYouMean: data.from.text.didYouMean
+            from: data.from,
+            raw: data.raw
         })    
     }).catch(err => {
         res.json({
@@ -35,9 +34,8 @@ app.get('/api/tar', (req, res, next) => {
     translate(req.query.text, { from: req.query.from , to: req.query.to }).then(data => {
         res.json({
             text: data.text,
-            autoCorrected: data.from.autoCorrected,
-            value: data.from.text.value,
-            didYouMean: data.from.text.didYouMean
+            from: data.from,
+            raw: data.raw
         })
       }).catch(err => {
         res.json({
