@@ -53,8 +53,7 @@ app.post('/cors-everywhere',(req, res, next) => {
     console.log(requestURL)
     axios.get(requestURL)
         .then((data) => {
-            console.log(data.data.candidates)
-            res.json(data.data.candidates)
+            res.json(data.data)
         })
         .catch((err) => {
             res.json(err)
