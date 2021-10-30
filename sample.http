@@ -1,0 +1,7 @@
+###
+POST http://localhost:8000/cors-everywhere
+Content-Type: "application/json"
+
+{
+    "this": "is"
+}
