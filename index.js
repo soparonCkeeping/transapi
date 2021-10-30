@@ -1,5 +1,3 @@
-
-
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -42,6 +40,10 @@ app.get('/api/tar', (req, res, next) => {
             error: err
         })
       });
+})
+
+app.post('/cors-everywhere',(req, res, next) => {
+    res.json('this')
 })
 
 let port = parseInt(process.env.PORT) || 8000
