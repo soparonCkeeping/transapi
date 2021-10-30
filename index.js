@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const translate = require('@iamtraction/google-translate')
+const { json } = require('body-parser')
+const axios = require('axios')
+
+
 require('dotenv').config()
 
 
@@ -42,8 +46,17 @@ app.get('/api/tar', (req, res, next) => {
       });
 })
 
+
+
 app.post('/cors-everywhere',(req, res, next) => {
-    res.json('this')
+    requestURL = req.body.requestURL
+    axios.get(requestURL)
+        .then((data) => {
+            res.json(data)
+        })
+        .catch((err) => {
+            res.json(err)
+        })  
 })
 
 let port = parseInt(process.env.PORT) || 8000
