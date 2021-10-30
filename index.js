@@ -50,6 +50,7 @@ app.get('/api/tar', (req, res, next) => {
 
 app.post('/cors-everywhere',(req, res, next) => {
     requestURL = req.body.requestURL
+    console.log(requestURL)
     axios.get(requestURL)
         .then((data) => {
             res.json(data)
